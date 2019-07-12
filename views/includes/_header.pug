@@ -1,0 +1,16 @@
+header
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand(href='#') My Blog
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+                li.nav-item.active
+                    a.nav-link(href='/')
+                        | Home 
+                        span.sr-only (current)
+                li.nav-item
+                    a.nav-link(href='/blog') Blog
+                li.nav-item
+                    a.nav-link(href='http://localhost:3000/blog/create') Create post
+                

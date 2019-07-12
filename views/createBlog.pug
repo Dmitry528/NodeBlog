@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    include includes/_header.pug
+    .container.createPost
+        .row.justify-content-center
+            .col-xl-5
+                form(action='/blog/create')
+                    .form-group
+                        label(for='formGroupExampleInput') Post title
+                        input#formGroupExampleInput.form-control(type='text', placeholder='Post title')
+                    .form-group
+                        label(for='formGroupExampleInput2') Author
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Author')
+                    .form-group
+                        label(for='formGroupExampleInput2') Category
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Category')
+                    .form-group
+                        label(for='formGroupExampleInput2') Date
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Date')
+
+
+
