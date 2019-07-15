@@ -24,10 +24,14 @@ router.get('/single', (req, res) => {
 
 router.post('/create', (req, res) => {
     let title = req.body.title;
+    let prewiev = req.body.prewiew;
     let category = req.body.category;
-    let post = req.body.post;
     let author = req.body.author;
     let date = new Date();
+
+    console.log(`Title: ${title}, prewiev: ${prewiev}, category: ${category}, author: ${author}, date: ${date}`);
+    res.redirect('/');
+    //parse date > model schema > go data Into DB
 });
 
 module.exports = router;
