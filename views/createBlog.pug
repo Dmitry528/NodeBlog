@@ -8,16 +8,17 @@ block content
                 form(action='/blog/create')
                     .form-group
                         label(for='formGroupExampleInput') Post title
-                        input#formGroupExampleInput.form-control(type='text', placeholder='Post title')
+                        input#formGroupExampleInput.form-control(type='text', placeholder='Post title', name='title')
+                     .form-group
+                        label(for='formGroupExampleInput2') Descriptoin
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Description', name='prewiew')
                     .form-group
                         label(for='formGroupExampleInput2') Author
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Author')
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Author', name="author")
                     .form-group
                         label(for='formGroupExampleInput2') Category
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Category')
-                    .form-group
-                        label(for='formGroupExampleInput2') Date
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Date')
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Category', name='category')
+                    button(type="submit").btn.btn-default Submit
 
 
 
