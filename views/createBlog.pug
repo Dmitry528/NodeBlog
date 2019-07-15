@@ -5,19 +5,25 @@ block content
     .container.createPost
         .row.justify-content-center
             .col-xl-5
-                form(action='/blog/create')
+                form(action='/blog/create', method='post',  enctype="multipart/form-data")
                     .form-group
                         label(for='formGroupExampleInput') Post title
-                        input#formGroupExampleInput.form-control(type='text', placeholder='Post title')
+                        input#formGroupExampleInput.form-control(type='text', placeholder='Post title', name="title")
                     .form-group
                         label(for='formGroupExampleInput2') Author
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Author')
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Author', name="author")
                     .form-group
                         label(for='formGroupExampleInput2') Category
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Category')
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Category', name="category")
                     .form-group
-                        label(for='formGroupExampleInput2') Date
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Date')
+                        label(for='formGroupExampleInput2') Post
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Post', name="post")
+                    .form-group
+                        label Main Image:
+                        input.form-control(name='mainimage', type='file')
+                    
+                    button.btn.btn-outline-success(type='submit') Submit
+
 
 
 

@@ -1,5 +1,8 @@
-const express = require('express');
-const router = express.Router();
+let express = require('express');
+let router = express.Router();
+const multer = require('multer');
+const upload = multer({ dest: './public/uploads/' });
+const mongoose = require('mongoose');
 
 router.get('/', (req, res, next) => {
     res.render('blogs', {
@@ -20,8 +23,11 @@ router.get('/single', (req, res) => {
 // POST
 
 router.post('/create', (req, res) => {
-    // this router created for POST requests
-    // if okay (in schema) go to database!
+    let title = req.body.title;
+    let category = req.body.category;
+    let post = req.body.post;
+    let author = req.body.author;
+    let date = new Date();
 });
 
 module.exports = router;
