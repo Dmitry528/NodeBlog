@@ -9,54 +9,19 @@ block content
                     .section-title.mb-100
                         h4 List of posts
             .row
-                .col-lg-4.col-md-6
                     // Single Blog
                     .single-blog
                         .blog-img
                             img(src='/images/mainImg.jpg', alt='')
                             .post-category
-                                a(href='#') Creative
+                                a(href='#') #{category}
                         .blog-content
                             .blog-title
                                 h4
-                                    a(href='#') Mobilies UX Treend
+                                    a(href='#') #{title}
                                 .meta
                                     ul
-                                        li 04 June 2018
+                                        li #{date}
                             p
-                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.
-                            a.box_btn(href='#') read more
-                .col-lg-4.col-md-6
-                    // Single Blog
-                    .single-blog
-                        .blog-img
-                            img(src='/images/mainImg.jpg', alt='')
-                            .post-category
-                                a(href='#') Creative
-                        .blog-content
-                            .blog-title
-                                h4
-                                    a(href='#') Mobilies UX Treend
-                                .meta
-                                    ul
-                                        li 23 June 2018
-                            p
-                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.
-                            a.box_btn(href='#') read more
-                .col-lg-4.col-md-6
-                    // Single Blog
-                    .single-blog
-                        .blog-img
-                            img(src='/images/mainImg.jpg', alt='')
-                            .post-category
-                                a(href='#') Creative
-                        .blog-content
-                            .blog-title
-                                h4
-                                    a(href='#') Mobilies UX Treend
-                                .meta
-                                    ul
-                                        li 31 July 2018
-                            p
-                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.
+                                | #{prewiew}
                             a.box_btn(href='#') read more
