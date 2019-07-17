@@ -72,13 +72,13 @@ router.get('/', (req, res, next) => {
     const Posts = require('../models/posts.model');
     Posts.find({})
     .then((result) => {
-        var temparr = [];
-        temparr.push(result);
-        console.log(temparr);
+        //var temparr = [];
+        //temparr.push(result);
+        //console.log(temparr);
         res.render('blogs', {
-
+         info: result 
         })
-        return temparr;
+        console.log(result);
     })
     .catch((err) => {
         console.log(err);

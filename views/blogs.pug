@@ -8,20 +8,22 @@ block content
                 .col-xl-6.mx-auto.text-center
                     .section-title.mb-100
                         h4 List of posts
-            .row
-                    // Single Blog
+            .row.justify-content-between.topgo
+                // Single Blog
+                // in pug loop insert data (info) in Posts then Multer use
+                each item in info
                     .single-blog
                         .blog-img
                             img(src='/images/mainImg.jpg', alt='')
                             .post-category
-                                a(href='#') #{category}
+                                a(href='#')= item.category
                         .blog-content
                             .blog-title
                                 h4
-                                    a(href='#') #{title}
+                                    a(href='#')= item.title
                                 .meta
                                     ul
-                                        li #{date}
-                            p
-                                | #{prewiew}
+                                        li= item.date
+                            p= item.prewiew
+                            
                             a.box_btn(href='#') read more
