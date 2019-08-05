@@ -4,14 +4,14 @@ block content
     include includes/_header.pug
     .container.createPost
         .row.justify-content-center
-            .col-xl-5
+            .col-xl-6
                 form(action='/blog/create', method='post')
                     .form-group
                         label(for='formGroupExampleInput') Post title
                         input#formGroupExampleInput.form-control(type='text', placeholder='Post title', name='title')
                     .form-group
                         label(for='formGroupExampleInput2') Descriptoin
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Description', name='prewiew')
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Prewiew', name='prewiew')
                     .form-group
                         label(for='formGroupExampleInput2') Author
                         input#formGroupExampleInput2.form-control(type='text', placeholder='Author', name="author")
@@ -19,6 +19,8 @@ block content
                         label(for='formGroupExampleInput2') Category
                         input#formGroupExampleInput2.form-control(type='text', placeholder='Category', name='category')
                     button(type="submit").btn.btn-success Submit
+                if msg
+                    h2.errorMSG #{msg}
 
 
 

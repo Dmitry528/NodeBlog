@@ -3,6 +3,8 @@ let router = express.Router();
 const multer = require('multer');
 //const upload = multer({ dest: './public/uploads/' });
 //const mongoose = require('mongoose');
+// var moment = require('moment');
+const Joi = require('joi');
 
 router.get('/create', (req, res) => {
     res.render('createBlog');
@@ -15,39 +17,57 @@ router.get('/single', (req, res) => {
 });
 
 // POST
-
-router.post('/create', (req, res) => {
+const valid_data = (req, res, next) => {
     let title = req.body.title;
     let prewiev = req.body.prewiew;
     let category = req.body.category;
     let author = req.body.author;
-    let date = new Date();
-    req.checkBody('title', 'Title field is required').notEmpty();
-    req.checkBody('prewiew', 'prewiew field is required').notEmpty();
-    req.checkBody('category', 'enter category').notEmpty();
-    req.checkBody('author', 'enter author').notEmpty();
 
-    //let errors = req.validationErrors();
+    const schemaPost = Joi.object().keys({
+        title: Joi.string().required().min(5),
+        prewiew: Joi.string().required().min(5),
+        category: Joi.string().required().min(5),
+        author: Joi.string().required().min(5)
+    });
+    schemaPost.validate({
+        title: title,
+        prewiew: prewiev,
+        category: category,
+        author: author
+    }, (err, value) =>  { 
+        if(err){
+            console.log(err);
+            res.render('createBlog', {msg: err.details[0].message});
+        }
+        else{
+            console.log('Nice valid');
+            next();
+        }
+    });
+}
 
-    req.asyncValidationErrors()
-    .then(() => {
-        const Posts = require('../models/posts.model');
-        const AddPost = new Posts({
-            title: title,
-            prewiew: prewiev,
-            category: category,
-            author: author,
-            date: date
-        });
-        AddPost.save()
-            .then(() => {
-                res.redirect('/');
-            })
-            .catch(e => console.log(e))
-    })
-    .catch((errors) => {
-        console.log(errors);
-        res.redirect('/ddd');
+router.post('/create', valid_data, (req, res) => {
+    let title = req.body.title;
+    let prewiev = req.body.prewiew;
+    let category = req.body.category;
+    let author = req.body.author;
+
+    const Posts = require('../models/posts.model');
+
+    const AddPost = new Posts({
+        title: title,
+        prewiew: prewiev,
+        category: category,
+        author: author,
+    });
+    AddPost.save((err, result) => {
+        if(err){
+            console.log(err);
+        }
+        else{
+           console.log('Saved' + result); 
+           res.redirect('http://localhost:3000/blog');
+        }
     })
 });
 
@@ -67,3 +87,4 @@ router.get('/', (req, res, next) => {
 
 module.exports = router;
 
+// MULTER

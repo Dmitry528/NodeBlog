@@ -3,27 +3,26 @@ extends layout
 block content
     include includes/_header.pug
     section#blog.blog-me.pt-100.pb-100
-        .container.listOfPosts
+        .container
             .row
                 .col-xl-6.mx-auto.text-center
                     .section-title.mb-100
-                        h4 List of posts
-            .row.justify-content-around.topgo
-                // Single Blog
-                // in pug loop insert data (info) in Posts then Multer use
-                each item in info
-                    .single-blog
-                        .blog-img
-                            img(src='/images/mainImg.jpg', alt='')
-                            .post-category
-                                a(href='#')= item.category
-                        .blog-content
-                            .blog-title
-                                h4
-                                    a(href='#')= item.title
-                                .meta
-                                    ul
-                                        li= item.date
-                            p= item.prewiew
-                            
-                            a.box_btn(href='#') read more
+                        p Posts
+                        h4 latest blog
+            .row
+                each obj in info
+                    .col-lg-4.col-md-6
+                        // Single Blog
+                        .single-blog
+                            .blog-img
+                                img(src='images/mainImg.jpg', alt='post_img')
+                            .blog-content
+                                .blog-title
+                                    h4
+                                        a(href='#') Title: #{obj.title}
+                                    .meta
+                                        ul
+                                            li Date: #{obj.date}
+                                p
+                                    |Description: #{obj.prewiew}
+                                p Author: #{obj.author}

@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const date = require('date-and-time');
+const now = new Date();
+let moment = date.format(now, 'YYYY/MM/DD HH:mm:ss');
 
 const PostsSchema = new Schema({
     title: {
@@ -19,9 +22,11 @@ const PostsSchema = new Schema({
         required: true
     },
     date:{
-        type: Date,
-        required: true
+        type: String,
+        default: moment
     }
+}, {
+    versionKey: false
 });
 
 module.exports = mongoose.model('posts', PostsSchema);
