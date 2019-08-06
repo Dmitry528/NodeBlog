@@ -2,3 +2,22 @@ extends layout
 
 block content
   include includes/_header.pug
+  .row.justify-content-center
+    .col-8
+      form
+        .form-group
+          label(for='exampleInputEmail1') Email address
+          input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+          small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+        .form-group
+          label(for='exampleInputPassword1') Login
+          input#exampleInputPassword1.form-control(type='text', placeholder='Login')
+        .form-group
+          label(for='exampleInputPassword1') Password
+          input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+        .form-group
+          label(for='exampleInputPassword1') Repassword
+          input#exampleInputPassword1.form-control(type='password', placeholder='repassword')
+        .form-group.form-check
+        button.btn.btn-primary(type='submit') Submit
+
