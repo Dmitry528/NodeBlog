@@ -16,8 +16,13 @@ router.get('/single', (req, res) => {
 // POST
 
 // chek if user is register
-// lock create post when you are not register => redir to register
+// lock create post when you are not register => redir to register COOKIE TIME LIFE
 // multer
+
+// MULTER
+// One Post
+// Validation Auth
+// body styles flex
 
 
 
@@ -90,8 +95,3 @@ router.get('/', (req, res, next) => {
 });
 
 module.exports = router;
-
-// MULTER
-// One Post
-// Validation Auth
-// body styles flex
