@@ -101,6 +101,7 @@ router.post('/', dbCheck, validCheck, (req, res) => {
     }
     else{
       console.log(`Saved: ${saved}`);
+      res.redirect('http://localhost:3000/signIn');
     }
   })
 });

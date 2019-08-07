@@ -1,9 +1,6 @@
 let express = require('express');
 let router = express.Router();
 const multer = require('multer');
-//const upload = multer({ dest: './public/uploads/' });
-//const mongoose = require('mongoose');
-// var moment = require('moment');
 const Joi = require('joi');
 
 router.get('/create', (req, res) => {
@@ -17,6 +14,11 @@ router.get('/single', (req, res) => {
 });
 
 // POST
+
+// chek if user is register
+
+
+
 const valid_data = (req, res, next) => {
     let title = req.body.title;
     let prewiev = req.body.prewiew;
