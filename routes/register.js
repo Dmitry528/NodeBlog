@@ -39,9 +39,6 @@ const dbCheck = (req, res, next) => {
 
 const validCheck = (req, res, next) => {
   console.log('We are on valid check on Joi');
-  // if password === repassword => joi valid => hash password => saveDB
-  // auth
-  // lock create post when you are not register => redir to register
 
   let email = req.body.email;
   let login = req.body.login;
