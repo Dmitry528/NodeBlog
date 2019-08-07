@@ -25,6 +25,7 @@ router.post('/', (req, res) => {
       .then((result) => {
         console.log(result);
         if(result === true){
+          res.cookie('Auth', 'true', 50000);
           res.redirect('http://localhost:3000/blog/create');
         }
         else{

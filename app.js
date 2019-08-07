@@ -32,8 +32,22 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// simple lock rout
+  const auth = (req, res, next) => {
+    console.log(req.cookies);
+    let cookie = req.cookies;
+    if(cookie.Auth === 'true'){
+      console.log('next');
+      next();
+    } 
+    else{
+      res.redirect('http://localhost:3000/Register');
+    }
+  }
+//
+
 app.use('/', indexRouter);
-app.use('/blog', blogRouter);
+app.use('/blog', auth ,blogRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/SignIn', signIn);

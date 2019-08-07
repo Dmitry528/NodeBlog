@@ -16,9 +16,8 @@ router.get('/single', (req, res) => {
 // POST
 
 // chek if user is register
-// if password === repassword => joi valid => hash password => saveDB
-// auth
 // lock create post when you are not register => redir to register
+// multer
 
 
 
