@@ -6,7 +6,6 @@ var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var expressValidator = require('express-validator');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -15,7 +14,7 @@ var registerRouter = require('./routes/register');
 var signIn = require('./routes/signIn');
 
 var app = express();
-app.use(expressValidator());
+//app.use(expressValidator());
 app.use(bodyParser.json());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

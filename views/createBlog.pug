@@ -8,16 +8,16 @@ block content
                 form(action='/blog/create', method='post')
                     .form-group
                         label(for='formGroupExampleInput') Post title
-                        input#formGroupExampleInput.form-control(type='text', placeholder='Post title', name='title')
+                        input#formGroupExampleInput.form-control(type='text', placeholder='Post title', name='title', required)
                     .form-group
                         label(for='formGroupExampleInput2') Descriptoin
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Prewiew', name='prewiew')
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Prewiew', name='prewiew', required)
                     .form-group
                         label(for='formGroupExampleInput2') Author
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Author', name="author")
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Author', name="author", required)
                     .form-group
                         label(for='formGroupExampleInput2') Category
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Category', name='category')
+                        input#formGroupExampleInput2.form-control(type='text', placeholder='Category', name='category', required)
                     button(type="submit").btn.btn-success Submit
                 if msg
                     h2.errorMSG #{msg}
