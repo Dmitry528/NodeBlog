@@ -19,6 +19,9 @@ block content
                         label(for='formGroupExampleInput2') Category
                         input#formGroupExampleInput2.form-control(type='text', placeholder='Category', name='category', required)
                     button(type="submit").btn.btn-success Submit
+                form(action="/blog/create", method='post', enctype="multipart/form-data")
+                    <input type="file" name="img" />
+                     button(type="submit").btn.btn-success Submit
                 if msg
                     h2.errorMSG #{msg}
 

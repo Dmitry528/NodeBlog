@@ -2,6 +2,8 @@ let express = require('express');
 let router = express.Router();
 const multer = require('multer');
 const Joi = require('joi');
+const Multer  = require('multer');
+var upload = Multer({ dest: 'uploads/' });
 
 router.get('/create', (req, res) => {
     res.render('createBlog');
@@ -18,12 +20,9 @@ router.get('/single', (req, res) => {
 // chek if user is register
 // lock create post when you are not register => redir to register COOKIE TIME LIFE
 // multer
-
-// MULTER
+// no encrype multer
 // One Post
 // Validation Auth
-// body styles flex
-
 
 
 const valid_data = (req, res, next) => {
@@ -82,16 +81,22 @@ router.post('/create', valid_data, (req, res) => {
 
 router.get('/', (req, res, next) => {
     const Posts = require('../models/posts.model');
-    Posts.find({})
+    Posts.find({}).limit(6)
     .then((result) => {
-        res.render('blogs', {
-         info: result 
-        })
         console.log(result);
+        res.render('blogs', {
+            info: result 
+        })
     })
     .catch((err) => {
         console.log(err);
     })
 });
+
+router.post('/create', upload.single('img'), function (req, res, next) {
+    // req.file - файл `avatar`
+    // req.body сохранит текстовые поля, если они будут
+    console.log(req.file);
+  })
 
 module.exports = router;
