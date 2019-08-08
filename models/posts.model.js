@@ -24,7 +24,11 @@ const PostsSchema = new Schema({
     date:{
         type: String,
         default: moment
-    }
+    },
+    mainimage: {
+        type: String,
+        required: false
+    },
 }, {
     versionKey: false
 });

@@ -5,7 +5,7 @@ block content
     .container.createPost
         .row.justify-content-center
             .col-xl-6
-                form(action='/blog/create', method='post')
+                form(action='/blog/create', method='post', enctype="multipart/form-data")
                     .form-group
                         label(for='formGroupExampleInput') Post title
                         input#formGroupExampleInput.form-control(type='text', placeholder='Post title', name='title', required)
@@ -18,10 +18,10 @@ block content
                     .form-group
                         label(for='formGroupExampleInput2') Category
                         input#formGroupExampleInput2.form-control(type='text', placeholder='Category', name='category', required)
+                    .form-group
+                        label(for='formGroupExampleInput2') Select your image
+                        <input type="file" name="file" />
                     button(type="submit").btn.btn-success Submit
-                form(action="/blog/create", method='post', enctype="multipart/form-data")
-                    <input type="file" name="img" />
-                     button(type="submit").btn.btn-success Submit
                 if msg
                     h2.errorMSG #{msg}
 

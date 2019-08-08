@@ -3,7 +3,7 @@ let router = express.Router();
 const multer = require('multer');
 const Joi = require('joi');
 const Multer  = require('multer');
-var upload = Multer({ dest: 'uploads/' });
+var upload = Multer({ dest: './public/uploads/' }).single('file');
 
 router.get('/create', (req, res) => {
     res.render('createBlog');
@@ -19,7 +19,7 @@ router.get('/single', (req, res) => {
 
 // chek if user is register
 // lock create post when you are not register => redir to register COOKIE TIME LIFE
-// multer
+// multer WHY REQ BODY IS EMPTY &&&&&&&&&&&&&
 // no encrype multer
 // One Post
 // Validation Auth
@@ -55,10 +55,21 @@ const valid_data = (req, res, next) => {
 }
 
 router.post('/create', valid_data, (req, res) => {
+    console.log(req.file);
+
     let title = req.body.title;
     let prewiev = req.body.prewiew;
     let category = req.body.category;
     let author = req.body.author;
+    
+    if (req.file) {
+        var mainimage = req.file.filename;
+    }
+    else {
+        //var mainimage = 'mainImg.jpg';
+        console.log('This must be default img');
+        console.log(req.file);
+    }
 
     const Posts = require('../models/posts.model');
 
@@ -67,7 +78,9 @@ router.post('/create', valid_data, (req, res) => {
         prewiew: prewiev,
         category: category,
         author: author,
+        mainimage: mainimage,
     });
+    console.log(mainimage);
     AddPost.save((err, result) => {
         if(err){
             console.log(err);
@@ -93,10 +106,10 @@ router.get('/', (req, res, next) => {
     })
 });
 
-router.post('/create', upload.single('img'), function (req, res, next) {
-    // req.file - файл `avatar`
-    // req.body сохранит текстовые поля, если они будут
-    console.log(req.file);
-  })
+// router.post('/create', upload.single('img'), function (req, res, next) {
+//     // req.file - файл `avatar`
+//     // req.body сохранит текстовые поля, если они будут
+//     console.log(req.file);
+//   })
 
 module.exports = router;
