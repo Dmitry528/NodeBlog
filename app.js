@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 var blogRouter = require('./routes/blog');
 var registerRouter = require('./routes/register');
 var signIn = require('./routes/signIn');
+var uploads = require('./routes/upload');
 
 var app = express();
 //app.use(expressValidator());
@@ -51,6 +52,7 @@ app.use('/blog', auth ,blogRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/SignIn', signIn);
+app.use('/fileUpload', uploads);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,7 +3,7 @@ let router = express.Router();
 const multer = require('multer');
 const Joi = require('joi');
 const Multer  = require('multer');
-var upload = Multer({ dest: './public/uploads/' }).single('file');
+var upload = Multer({ dest: './public/uploads/' });
 
 router.get('/create', (req, res) => {
     res.render('createBlog');
@@ -54,7 +54,7 @@ const valid_data = (req, res, next) => {
     });
 }
 
-router.post('/create', valid_data, (req, res) => {
+router.post('/create', valid_data, upload.single('file') ,(req, res) => {
     console.log(req.file);
 
     let title = req.body.title;
@@ -63,10 +63,10 @@ router.post('/create', valid_data, (req, res) => {
     let author = req.body.author;
     
     if (req.file) {
-        var mainimage = req.file.filename;
+        var mainimage = req.files;
     }
     else {
-        //var mainimage = 'mainImg.jpg';
+        var mainimage = 'mainImg.jpg';
         console.log('This must be default img');
         console.log(req.file);
     }
