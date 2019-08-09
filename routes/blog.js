@@ -1,9 +1,7 @@
 let express = require('express');
 let router = express.Router();
-const multer = require('multer');
+
 const Joi = require('joi');
-const Multer  = require('multer');
-var upload = Multer({ dest: './public/uploads/' });
 
 router.get('/create', (req, res) => {
     res.render('createBlog');
@@ -54,23 +52,15 @@ const valid_data = (req, res, next) => {
     });
 }
 
-router.post('/create', valid_data, upload.single('file') ,(req, res) => {
-    console.log(req.file);
+router.post('/create', valid_data ,(req, res) => {
 
     let title = req.body.title;
     let prewiev = req.body.prewiew;
     let category = req.body.category;
     let author = req.body.author;
-    
-    if (req.file) {
-        var mainimage = req.files;
-    }
-    else {
-        var mainimage = 'mainImg.jpg';
-        console.log('This must be default img');
-        console.log(req.file);
-    }
 
+    // const image = require('./upload');
+    // console.log(image);
     const Posts = require('../models/posts.model');
 
     const AddPost = new Posts({
@@ -78,9 +68,8 @@ router.post('/create', valid_data, upload.single('file') ,(req, res) => {
         prewiew: prewiev,
         category: category,
         author: author,
-        mainimage: mainimage,
+        mainimage: imageForDB
     });
-    console.log(mainimage);
     AddPost.save((err, result) => {
         if(err){
             console.log(err);
