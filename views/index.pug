@@ -2,3 +2,37 @@ extends layout
 
 block content
   include includes/_header.pug
+  hr
+  .container
+    .row.justify-content-center
+      .col-6
+        form(action="/", method="post")
+          <select class="browser-default custom-select", name='selectCateg'>
+            <option value="Sport">Sport</option>
+            <option value="Life">Life</option>
+            <option value="Nature">Nature</option>
+            <option value="Another">Another</option>
+          </select>
+          br
+          button(type="submit").btn.btn-success Submit
+    .row.justify-content-center
+      if info
+        each obj in info
+          .col-lg-4.col-md-6
+            // Single Blog
+            .single-blog
+              .blog-img
+                img(src=`uploads/${obj.mainimage}`, alt='post_img').blogImg
+              .blog-content
+                .blog-title
+                  h4
+                    a(href='#') Title: #{obj.title}
+                  .meta
+                    ul
+                      li Date: #{obj.date}
+                p
+                  |Description: #{obj.prewiew}
+                p Author: #{obj.author}
+                p Category: #{obj.category}
+      else
+        h4.err  Select your category

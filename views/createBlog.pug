@@ -5,6 +5,16 @@ block content
     .container.createPost
         .row.justify-content-center
             .col-xl-6
+                hr
+                h1 Select Image
+                form(action='/fileUpload', method='post', enctype='multipart/form-data')
+                    label(for='formGroupExampleInput2') Select your image
+                    br
+                    <input type="file" name="file" />
+                    button(type="submit").btn.btn-success Upload Image
+                hr
+                h1 Create Post
+                hr
                 form(action='/blog/create', method='post')
                     .form-group
                         label(for='formGroupExampleInput') Post title
@@ -17,15 +27,16 @@ block content
                         input#formGroupExampleInput2.form-control(type='text', placeholder='Author', name="author", required)
                     .form-group
                         label(for='formGroupExampleInput2') Category
-                        input#formGroupExampleInput2.form-control(type='text', placeholder='Category', name='category', required)
+                        select(name='category', required).form-control#exampleFormControlSelect1
+                            option(value="Sport") Sport
+                            option(value="Life") Life
+                            option(value="Nature") Nature
+                            option(value="Another") Another
                     .form-group
                         button(type="submit").btn.btn-success Submit
-                form(action='/fileUpload', method='post', enctype='multipart/form-data')
-                    label(for='formGroupExampleInput2') Select your image
-                    <input type="file" name="file" />
-                    button(type="submit").btn.btn-success Upload Image
                 if msg
                     h2.errorMSG #{msg}
+                hr
 
 
 

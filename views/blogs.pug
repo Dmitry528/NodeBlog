@@ -8,14 +8,14 @@ block content
                 .col-xl-6.mx-auto.text-center
                     .section-title.mb-100
                         p Posts
-                        h4 latest blog
+                        h1 latest blog
             .row
                 each obj in info
                     .col-lg-4.col-md-6
                         // Single Blog
                         .single-blog
                             .blog-img
-                                img(src=`uploads/${obj.mainimage}`, alt='post_img')
+                                img(src=`uploads/${obj.mainimage}`, alt='post_img').blogImg
                             .blog-content
                                 .blog-title
                                     h4
@@ -26,3 +26,4 @@ block content
                                 p
                                     |Description: #{obj.prewiew}
                                 p Author: #{obj.author}
+                                p Category: #{obj.category}

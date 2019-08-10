@@ -32,7 +32,7 @@ const valid_data = (req, res, next) => {
     const schemaPost = Joi.object().keys({
         title: Joi.string().required().min(5),
         prewiew: Joi.string().required().min(5),
-        category: Joi.string().required().min(5),
+        category: Joi.string().required(),
         author: Joi.string().required().min(5)
     });
     schemaPost.validate({
