@@ -8,11 +8,12 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var ApiRouter = require('./routes/users');
 var blogRouter = require('./routes/blog');
 var registerRouter = require('./routes/register');
 var signIn = require('./routes/signIn');
 var uploads = require('./routes/upload');
+var admin = require('./routes/admin');
 
 var app = express();
 //app.use(expressValidator());
@@ -49,10 +50,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/blog', auth ,blogRouter);
-app.use('/users', usersRouter);
+app.use('/api', ApiRouter);
 app.use('/register', registerRouter);
 app.use('/SignIn', signIn);
 app.use('/fileUpload', uploads);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

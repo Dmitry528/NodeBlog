@@ -1,0 +1,42 @@
+Blog on 1) EXPRESS, 2) Bootstrap 4, 3) MONGO mongus || SQL | lite , 4) PUG
+1. Project_name: 'NodeBlog';
+
+Bootstrap 4 snippet!
+Mlab - mongoDB server
+
+
+1)Home
+2)About
+3)Contact
+4)Blog
+5)404
+
+
+6) Post
+6.1) Title
+6.2) Prew
+6.3) Author
+6.4) Data
+6.5) Pagination
+
+5 posts on Page!
+
+Sort posts on DATE!
+
+
+@@@ Shared in Facebook and Social
+
+7) Single POST PAGE -- all info
+
+
+8) OPT SYSTEM COMMENT
+9) NODE mailer - if who writes you, you get email on your BOX
+10) Admin panel!
+
+
+role - user, moderator, admin !
+
+Edit Profile
+add post!
+
+

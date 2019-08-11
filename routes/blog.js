@@ -83,7 +83,7 @@ router.post('/create', valid_data ,(req, res) => {
 
 router.get('/', (req, res, next) => {
     const Posts = require('../models/posts.model');
-    Posts.find({}).limit(6)
+    Posts.find({}).limit(9)
     .then((result) => {
         console.log(result);
         res.render('blogs', {

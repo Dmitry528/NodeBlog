@@ -11,13 +11,14 @@ router.post('/', upload.single('file') ,(req, res) => {
     // multer
 
     if(req.file){
-        let image = req.file.filename;
-        global.imageForDB = image;
+        //let image = req.file.filename;
+        global.imageForDB = req.file.filename;
     }
-    else if(!req.file){
-        let image = 'mainImg.jpg'
-        global.imageForDB = image;
+    else{
+        //let image = 'mainImg.jpg'
+        global.imageForDB = 'mainImg.jpg';
     }
+    //res.render('createBlog');
 
 });
 
