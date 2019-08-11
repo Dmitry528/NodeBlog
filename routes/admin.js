@@ -12,18 +12,15 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let value = req.body.value;
 
-    const posts = require('../models/posts.model');
-    posts.deleteOne({_id : value}, (err, res) => {
-        if(err){
-            console.log(err, 'ERROR');
-        }
-        else{
-            console.log(res, ' NOT ERROR');
-            // res.render('admin', {
-            //     //smg: 'Post Deleted'
-            // })   
-        }
+    const posts = require('../models/posts.model')
+    posts.deleteOne({_id : value})
+    .then((result) => {
+        console.log(result, 'Its Fine');
+        res.render('admin', {
+            smg: 'Post was delete'
+        })
     })
+    .catch((err) => console.log(err))
 })
 
 module.exports = router;

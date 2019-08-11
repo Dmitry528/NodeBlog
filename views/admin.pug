@@ -5,8 +5,8 @@ block content
     .container
         .row
             form(action="/admin", method="post")
-                h3 Where Id is 
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Value to by delete", name="value">
+                h3 Delete Post by ID
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ID", name="value">
                 button(type="submit") Submit
             if smg
                 h1 #{smg}
