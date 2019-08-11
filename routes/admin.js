@@ -21,8 +21,7 @@ router.post('/', (req, res) => {
             console.log(res, ' NOT ERROR');
             // res.render('admin', {
             //     //smg: 'Post Deleted'
-            // })
-            
+            // })   
         }
     })
 })

@@ -88,4 +88,7 @@ ul, ol {
   visibility: hidden;
   transition: .22s ease; }
 
+ul li {
+  margin: 7px 0px; }
+
 /*# sourceMappingURL=style.css.map */

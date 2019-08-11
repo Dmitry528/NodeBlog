@@ -19,7 +19,7 @@ router.post('/', upload.single('file') ,(req, res) => {
         global.imageForDB = 'mainImg.jpg';
     }
     //res.render('createBlog');
-
+    //res.redirect('http://localhost:3000/blog');
 });
 
 module.exports = router;
