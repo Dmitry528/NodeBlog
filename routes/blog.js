@@ -3,7 +3,12 @@ let router = express.Router();
 
 const Joi = require('joi');
 
-router.get('/create', (req, res) => {
+const auth = (req, res, next) => {
+    console.log('Chek there JWT');
+    next();   
+}
+
+router.get('/create', auth ,(req, res) => {
     res.render('createBlog');
 });
 
@@ -12,6 +17,8 @@ router.get('/single', (req, res) => {
         title: 'Single Blog'
     });
 });
+
+
 
 // POST
 

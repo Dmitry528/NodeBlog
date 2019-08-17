@@ -8,8 +8,6 @@ block content
                 hr
                 h1 Select Image
                 form(action='/fileUpload', method='post', enctype='multipart/form-data')
-                    label(for='formGroupExampleInput2555').selectedImg Select your image
-                    br
                     <input type="file" name="file" />
                     button(type="submit").btn.btn-success.btnUpload Upload Image
                 hr
@@ -37,6 +35,6 @@ block content
                 if msg
                     h2.errorMSG #{msg}
                 hr
-
+    //- p.fuckThis Hello
 
 

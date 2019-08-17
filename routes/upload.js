@@ -4,22 +4,14 @@ const Multer  = require('multer');
 var upload = Multer({ dest: './public/uploads/' });
 
 router.post('/', upload.single('file') ,(req, res) => {
-    // const modelBlog = require('../models/posts.model');
-    // let saveFile = new modelBlog({
-    //     mainimage: req.file.filename
-    // })
-    // multer
-
     if(req.file){
-        //let image = req.file.filename;
         global.imageForDB = req.file.filename;
+        console.log('Image is');
     }
     else{
-        //let image = 'mainImg.jpg'
         global.imageForDB = 'mainImg.jpg';
+        console.log('Image NOT');
     }
-    //res.render('createBlog');
-    //res.redirect('http://localhost:3000/blog');
 });
 
 module.exports = router;

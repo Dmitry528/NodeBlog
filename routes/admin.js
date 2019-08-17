@@ -5,10 +5,6 @@ router.get('/', (req, res) => {
     res.render('admin');
 });
 
-// router.put('/', (req, res) => {
-
-// })
-
 router.post('/', (req, res) => {
     let value = req.body.value;
 
